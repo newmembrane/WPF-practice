@@ -1,0 +1,31 @@
+﻿<Window x:Class="Att_Check.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Att_Check"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btn_add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="176" Margin="101,159,0,0" Height="30" Click="Button_Click" Content="Add"/>
+        <ListBox x:Name="userList" HorizontalAlignment="Left" Height="274" Margin="307,23,0,0" VerticalAlignment="Top" Width="331">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <TextBlock Text="{Binding Gender}"/>
+                        <CheckBox IsChecked="{Binding IsAttended, UpdateSourceTrigger=Explicit, Mode=TwoWay}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox x:Name="userName" HorizontalAlignment="Left" Height="45" Margin="101,23,0,0" TextWrapping="Wrap" Text="이름입력" VerticalAlignment="Top" Width="176"/>
+        <ComboBox x:Name="gender" HorizontalAlignment="Left" Height="53" Margin="101,87,0,0" VerticalAlignment="Top" Width="176" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="0">
+            <ListBoxItem Content="남자"/>
+            <ListBoxItem Content="여자"/>
+        </ComboBox>
+        <Button x:Name="btn_del" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="176" Margin="101,194,0,0" Height="30" Click="Del_Button_Click"/>
+        <Button x:Name="btn_check" Content="출석" HorizontalAlignment="Left" Height="59" Margin="101,238,0,0" VerticalAlignment="Top" Width="176" Click="Btn_check_Click"/>
+
+    </Grid>
+</Window>
